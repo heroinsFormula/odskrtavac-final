@@ -12,14 +12,13 @@
 </template>
 
 <script lang="ts">
-import { useBookStore } from '@/stores/bookStore'
+import { useUiStore } from '@/stores/uiStore'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   methods: {
     openForm() {
-      const store = useBookStore()
-      store.bookFormOpen = true
+      useUiStore().bookFormOpen = true
     }
   }
 })

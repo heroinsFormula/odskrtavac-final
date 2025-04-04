@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useBookStore } from '@/stores/bookStore'
+import { useUiStore } from '@/stores/uiStore'
 
 export default defineComponent({
   name: 'BookTableDeleteButton',
@@ -27,11 +28,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const store = useBookStore()
-
     const deleteBook = () => {
-      store.setCurrentBookSlug(props.slug)
-      store.deleteWarnOpen = true
+      useBookStore().setCurrentBookSlug(props.slug)
+      useUiStore().deleteWarnOpen = true
     }
 
     return {

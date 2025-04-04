@@ -27,6 +27,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useBookStore } from '@/stores/bookStore'
+import { useUiStore } from '@/stores/uiStore'
 import { Book } from '@/types'
 import DefaultCard from '@/components/Forms/DefaultCard.vue'
 
@@ -35,10 +36,9 @@ export default defineComponent({
   components: {
     DefaultCard
   },
-  setup() {},
   methods: {
     closeWindow() {
-      useBookStore().deleteWarnOpen = false
+      useUiStore().deleteWarnOpen = false
     },
 
     confirmDelete() {

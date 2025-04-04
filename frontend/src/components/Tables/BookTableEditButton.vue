@@ -15,6 +15,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useBookStore } from '@/stores/bookStore'
+import { useUiStore } from '@/stores/uiStore'
 
 export default defineComponent({
   name: 'BookTableEditButton',
@@ -25,11 +26,10 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const store = useBookStore()
-
     const editBook = () => {
-      store.setCurrentBookSlug(props.slug)
-      store.bookEditFormOpen = true
+      useBookStore().setCurrentBookSlug(props.slug)
+      useUiStore().bookEditFormOpen = true
+      console.log(useUiStore().bookEditFormOpen)
     }
 
     return {

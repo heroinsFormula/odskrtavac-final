@@ -35,9 +35,6 @@ export const useBookStore = defineStore('bookStore', {
       countries: [] as Country[],
       booklistAttributes: { ...initialBooklistAttributes },
       initialBooklistAttributes,
-      bookFormOpen: false,
-      bookEditFormOpen: false,
-      deleteWarnOpen: false,
       searchParam: '',
       bookSlug: ''
     }

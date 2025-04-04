@@ -74,6 +74,7 @@ import InputGroup from '@/components/Forms/InputGroup.vue'
 import DefaultCard from '@/components/Forms/DefaultCard.vue'
 import DefaultSelect from './SelectGroup/DefaultSelect.vue'
 import { useBookStore } from '@/stores/bookStore.ts'
+import { useUiStore } from '@/stores/uiStore'
 import bookService from '@/api/bookService'
 import { Author, Book, Country } from '@/types'
 
@@ -140,9 +141,9 @@ export default defineComponent({
     },
 
     handleSubmit() {
+      useUiStore().bookFormOpen = false
       if (this.validateData()) {
         const data = this.prepareData()
-        console.log(data)
         bookService.postBook(data)
       } else {
         return 'problééééém'
