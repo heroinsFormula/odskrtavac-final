@@ -1,9 +1,9 @@
 export interface Author {
   full_name: string
-  slug: string
+  slug?: string
   country: string
-  alt_name: string
-  description: string
+  alt_name?: string
+  description?: string
 }
 
 export interface Book {

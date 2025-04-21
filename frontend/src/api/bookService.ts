@@ -45,6 +45,10 @@ export const getAuthors = () => {
   return makeAuthenticatedRequest<Author[]>('get', 'book-api/get-authors/')
 }
 
+export const postAuthor = (newAuthor: Partial<Author>) => {
+  return makeAuthenticatedRequest<Author[]>('post', 'book-api/post-author/')
+}
+
 export const postBook = (newBook: Partial<Book>) => {
   return makeAuthenticatedRequest<Book>('post', 'book-api/post-book/', newBook)
 }
@@ -72,6 +76,7 @@ export const deleteBook = (slug: string) => {
 const bookService = {
   getBooks,
   getAuthors,
+  postAuthor,
   postBook,
   editBook,
   deleteBook,

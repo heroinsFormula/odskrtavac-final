@@ -5,6 +5,7 @@ export const useUiStore = defineStore('uiStore', {
     return {
       bookFormOpen: false,
       bookEditFormOpen: false,
+      authorFormOpen: false,
       deleteWarnOpen: false
     }
   }

@@ -10,7 +10,7 @@ async function getAccessToken() {
     const { status, data } = await axios.post(
       'user-api/refresh-token/',
       {
-        refresh: oldRefreshToken
+        refresh_token: oldRefreshToken
       },
       {
         withCredentials: true

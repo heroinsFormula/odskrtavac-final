@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import DataStatsOne from '@/components/DataStats/DataStatsOne.vue'
-import ChartOne from '@/components/Charts/ChartOne.vue'
-import ChartThree from '@/components/Charts/ChartThree.vue'
-import ChartTwo from '@/components/Charts/ChartTwo.vue'
-import ChatCard from '@/components/ChatCard.vue'
-import MapOne from '@/components/Maps/MapOne.vue'
-import TableOne from '@/components/Tables/TableOne.vue'
 import BookTable from '@/components/Tables/BookTable.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
-import ButtonDefault from '@/components/Buttons/ButtonAddBook.vue'
+import ButtonAddBook from '@/components/Buttons/ButtonAddBook.vue'
+import ButtonAddAuthor from '@/components/Buttons/ButtonAddAuthor.vue'
 import FormAddBook from '@/components/Forms/FormAddBook.vue'
+import FormAddAuthor from '@/components/Forms/FormAddAuthor.vue'
 import FormEditBook from '@/components/Forms/FormEditBook.vue'
 import FormDeleteBook from '@/components/Forms/FormDeleteBook.vue'
 import { useUiStore } from '@/stores/uiStore'
@@ -19,7 +14,8 @@ import { useUserStore } from '@/stores/userStore'
 <template>
   <DefaultLayout>
     <div>
-      <ButtonDefault v-if="useUserStore().isAdmin">+Přidat knihu</ButtonDefault>
+      <ButtonAddBook v-if="useUserStore().isAdmin">+Přidat knihu</ButtonAddBook>
+      <ButtonAddAuthor v-if="useUserStore().isAdmin">+Přidat autora</ButtonAddAuthor>
     </div>
 
     <template v-if="useUiStore().bookFormOpen">
@@ -28,6 +24,10 @@ import { useUserStore } from '@/stores/userStore'
 
     <template v-if="useUiStore().bookEditFormOpen">
       <FormEditBook />
+    </template>
+
+    <template v-if="useUiStore().authorFormOpen">
+      <FormAddAuthor />
     </template>
 
     <template v-if="useUiStore().deleteWarnOpen">
